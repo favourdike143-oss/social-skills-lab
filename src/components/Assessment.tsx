@@ -94,8 +94,14 @@ export function Assessment() {
     }));
     const score = subtotals.reduce((n, s) => n + s.score, 0);
     const sorted = [...subtotals].sort((a, b) => b.score - a.score);
-    const badge = badges.find((b) => score <= b.max) ?? badges[badges.length - 1];
-    return { subtotals, score, badge, strongest: sorted[0], growth: sorted[sorted.length - 1] };
+    const badge = (badges.find((b) => score <= b.max) ?? badges[badges.length - 1])!;
+    return {
+      subtotals,
+      score,
+      badge,
+      strongest: sorted[0]!,
+      growth: sorted[sorted.length - 1]!,
+    };
   }, [answers]);
 
   return (
@@ -166,7 +172,7 @@ export function Assessment() {
             </ul>
 
             <p className="label-mono mt-4 text-right text-ink/60">
-              Subtotal {section.key} — {result.subtotals[si].score} / 25
+              Subtotal {section.key} — {result.subtotals[si]!.score} / 25
             </p>
           </section>
         ))}
