@@ -10,33 +10,44 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GuidesSocialIntelligenceSimplifiedRouteImport } from './routes/guides.social-intelligence-simplified'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GuidesSocialIntelligenceSimplifiedRoute =
+  GuidesSocialIntelligenceSimplifiedRouteImport.update({
+    id: '/guides/social-intelligence-simplified',
+    path: '/guides/social-intelligence-simplified',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/guides/social-intelligence-simplified': typeof GuidesSocialIntelligenceSimplifiedRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/guides/social-intelligence-simplified': typeof GuidesSocialIntelligenceSimplifiedRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/guides/social-intelligence-simplified': typeof GuidesSocialIntelligenceSimplifiedRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/guides/social-intelligence-simplified'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/guides/social-intelligence-simplified'
+  id: '__root__' | '/' | '/guides/social-intelligence-simplified'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  GuidesSocialIntelligenceSimplifiedRoute: typeof GuidesSocialIntelligenceSimplifiedRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +59,21 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guides/social-intelligence-simplified': {
+      id: '/guides/social-intelligence-simplified'
+      path: '/guides/social-intelligence-simplified'
+      fullPath: '/guides/social-intelligence-simplified'
+      preLoaderRoute: typeof GuidesSocialIntelligenceSimplifiedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  GuidesSocialIntelligenceSimplifiedRoute:
+    GuidesSocialIntelligenceSimplifiedRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
