@@ -1,4 +1,5 @@
 import guidePdf from "@/assets/si-field-guide.pdf.asset.json";
+import funnyPdf from "@/assets/i-am-officially-funny.pdf.asset.json";
 
 export type LibraryItem = {
   slug: string;
@@ -13,6 +14,10 @@ export type LibraryItem = {
   href?: string;
   download?: string;
   motif: "compass" | "grin" | "spark" | "eye" | "wave";
+  /** Each edition gets its own cover palette so the shelf reads as a series, not a clone. */
+  accent: string;
+  accentSoft: string;
+  paper: string;
 };
 
 export const library: LibraryItem[] = [
@@ -21,7 +26,7 @@ export const library: LibraryItem[] = [
     edition: "Edition No. 01",
     kind: "A Field Guide",
     title: "Social Intelligence, Simplified",
-    subtitle: "Map your own social instincts",
+    subtitle: "Social intelligence, assessed",
     pillars: "Communication · Confidence · Humour · Human Behaviour",
     blurb:
       "A 20-statement self-assessment, the four-pillar framework, five everyday habits and a seven-day challenge — the companion to the video.",
@@ -30,18 +35,26 @@ export const library: LibraryItem[] = [
     href: "/guides/social-intelligence-simplified",
     download: guidePdf.url,
     motif: "compass",
+    accent: "oklch(0.52 0.15 38)",
+    accentSoft: "oklch(0.78 0.09 45)",
+    paper: "oklch(0.962 0.02 88)",
   },
   {
-    slug: "how-to-be-funny",
+    slug: "i-am-officially-funny",
     edition: "Edition No. 02",
-    kind: "A Workbook",
-    title: "How To Be Funny",
-    subtitle: "Timing, tension and the turn",
-    pillars: "Humour · Timing · Delivery",
+    kind: "An Interactive Workbook",
+    title: "I Am Officially Funny",
+    subtitle: "Ten modules, one comedy voice",
+    pillars: "Humour · Writing · Delivery · Performance",
     blurb:
-      "The mechanics behind why something lands — misdirection, callbacks, self-deprecation — broken into drills you can run in real conversations.",
-    status: "soon",
+      "The complete interactive comedy workbook: comedy style profile, the daily writing habit, joke anatomy, banter drills, observation logs, delivery and a 90-day career plan.",
+    pages: 41,
+    status: "available",
+    download: funnyPdf.url,
     motif: "grin",
+    accent: "oklch(0.62 0.19 25)",
+    accentSoft: "oklch(0.83 0.14 75)",
+    paper: "oklch(0.955 0.045 85)",
   },
   {
     slug: "humour-field-guide",
@@ -54,6 +67,9 @@ export const library: LibraryItem[] = [
       "Field notes on the six comic registers, when each one belongs, and how shared laughter quietly rewires a group's dynamic.",
     status: "soon",
     motif: "spark",
+    accent: "oklch(0.58 0.15 300)",
+    accentSoft: "oklch(0.8 0.1 310)",
+    paper: "oklch(0.955 0.025 305)",
   },
   {
     slug: "reading-people",
@@ -66,6 +82,9 @@ export const library: LibraryItem[] = [
       "What hands, feet and pacing reveal before anyone speaks — plus an observation log for training your eye over thirty days.",
     status: "soon",
     motif: "eye",
+    accent: "oklch(0.52 0.13 235)",
+    accentSoft: "oklch(0.78 0.09 230)",
+    paper: "oklch(0.955 0.022 230)",
   },
   {
     slug: "conversation-lab",
@@ -78,6 +97,9 @@ export const library: LibraryItem[] = [
       "Scripts, question ladders and repair moves for the three hardest moments: starting, going deeper, and leaving well.",
     status: "soon",
     motif: "wave",
+    accent: "oklch(0.55 0.13 185)",
+    accentSoft: "oklch(0.8 0.1 180)",
+    paper: "oklch(0.955 0.025 180)",
   },
   {
     slug: "quiet-influence",
@@ -90,5 +112,8 @@ export const library: LibraryItem[] = [
       "The research-backed levers behind cooperation — reciprocity, consistency, status — written for people who dislike selling.",
     status: "soon",
     motif: "compass",
+    accent: "oklch(0.48 0.13 145)",
+    accentSoft: "oklch(0.76 0.11 140)",
+    paper: "oklch(0.955 0.028 135)",
   },
 ];
