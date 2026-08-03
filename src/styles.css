@@ -39,37 +39,48 @@
   --color-ink: var(--ink);
   --color-rust: var(--rust);
   --color-rust-soft: var(--rust-soft);
+  --color-marigold: var(--marigold);
+  --color-teal: var(--teal);
+  --color-teal-soft: var(--teal-soft);
+  --color-violet: var(--violet);
+  --color-cobalt: var(--cobalt);
   --font-display: "Fraunces", ui-serif, Georgia, serif;
   --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
 }
 
 :root {
   --radius: 0.25rem;
-  --paper: oklch(0.958 0.017 90.5);
-  --paper-deep: oklch(0.925 0.023 88);
-  --ink: oklch(0.29 0.043 158);
-  --rust: oklch(0.505 0.132 38);
-  --rust-soft: oklch(0.72 0.09 45);
+  --paper: oklch(0.965 0.022 92);
+  --paper-deep: oklch(0.93 0.033 88);
+  --ink: oklch(0.27 0.05 158);
+  --rust: oklch(0.55 0.17 36);
+  --rust-soft: oklch(0.78 0.11 48);
+  --marigold: oklch(0.83 0.15 82);
+  --teal: oklch(0.56 0.12 190);
+  --teal-soft: oklch(0.9 0.06 190);
+  --violet: oklch(0.56 0.15 300);
+  --cobalt: oklch(0.52 0.14 245);
 
   --background: var(--paper);
   --foreground: var(--ink);
-  --card: oklch(0.981 0.012 92);
+  --card: oklch(0.985 0.015 92);
   --card-foreground: var(--ink);
-  --popover: oklch(0.981 0.012 92);
+  --popover: oklch(0.985 0.015 92);
   --popover-foreground: var(--ink);
   --primary: var(--ink);
-  --primary-foreground: oklch(0.975 0.015 92);
+  --primary-foreground: oklch(0.98 0.015 92);
   --secondary: var(--paper-deep);
   --secondary-foreground: var(--ink);
   --muted: var(--paper-deep);
-  --muted-foreground: oklch(0.5 0.02 150);
+  --muted-foreground: oklch(0.44 0.03 155);
   --accent: var(--rust);
-  --accent-foreground: oklch(0.975 0.015 92);
+  --accent-foreground: oklch(0.98 0.015 92);
   --destructive: oklch(0.55 0.18 27);
   --destructive-foreground: oklch(0.98 0.01 92);
-  --border: oklch(0.855 0.023 90);
-  --input: oklch(0.855 0.023 90);
+  --border: oklch(0.83 0.03 90);
+  --input: oklch(0.83 0.03 90);
   --ring: var(--rust);
 }
 
@@ -82,6 +93,8 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -89,7 +102,7 @@
   h2,
   h3 {
     font-family: var(--font-display);
-    font-weight: 600;
+    font-weight: 700;
   }
 }
 
@@ -101,7 +114,7 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.35;
+    opacity: 0.3;
     background-image: radial-gradient(
       color-mix(in oklab, var(--ink) 12%, transparent) 0.5px,
       transparent 0.5px
@@ -109,6 +122,7 @@
     background-size: 4px 4px;
   }
 }
+
 
 @utility label-mono {
   font-family: var(--font-mono);
