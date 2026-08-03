@@ -95,13 +95,13 @@ function GuidePage() {
               <a
                 href={item.download}
                 download
-                className="label-mono border border-ink bg-ink px-7 py-4 text-primary-foreground transition-colors hover:border-rust hover:bg-rust"
+                className="btn-solid"
               >
                 Download the PDF · Free
               </a>
               <a
                 href="#assessment"
-                className="label-mono border border-ink/40 px-7 py-4 transition-colors hover:border-rust hover:text-rust"
+                className="btn-outline"
               >
                 Take it online
               </a>
@@ -210,13 +210,13 @@ function GuidePage() {
             <a
               href={item.download}
               download
-              className="label-mono border border-ink bg-ink px-7 py-4 text-primary-foreground transition-colors hover:border-rust hover:bg-rust"
+              className="btn-solid"
             >
               Download the field guide
             </a>
             <Link
               to="/"
-              className="label-mono border border-ink/40 px-7 py-4 transition-colors hover:border-rust hover:text-rust"
+              className="btn-outline"
             >
               Back to the library
             </Link>
