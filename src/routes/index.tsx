@@ -103,54 +103,47 @@ function Index() {
           </div>
 
           <div className="mt-14 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-            {library.map((item) => {
-              const cover = (
-                <>
-                  <div
-                    className={`field-frame ${item.status === "soon" ? "opacity-55 saturate-50" : ""}`}
-                  >
-                    <BookCover item={item} />
-                  </div>
-                  <div className="mt-7">
-                    <p className="label-mono text-ink/45">
-                      {item.edition} ·{" "}
-                      {item.status === "available" ? (
-                        <span className="text-rust">Available now</span>
-                      ) : (
-                        <span>Coming soon</span>
-                      )}
-                    </p>
-                    <h3 className="mt-2 font-display text-xl font-bold leading-snug">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                      {item.blurb}
-                    </p>
-                  </div>
-                </>
-              );
+            {library.map((item) => (
+              <article key={item.slug} className="group flex flex-col">
+                <div
+                  className={`field-frame ${item.status === "soon" ? "opacity-70 saturate-[0.75]" : ""}`}
+                >
+                  <BookCover item={item} />
+                </div>
+                <div className="mt-7 flex flex-1 flex-col">
+                  <p className="label-mono text-ink/60">
+                    {item.edition} ·{" "}
+                    {item.status === "available" ? (
+                      <span style={{ color: item.accent }}>Available now</span>
+                    ) : (
+                      <span>Coming soon</span>
+                    )}
+                  </p>
+                  <h3 className="mt-2 font-display text-2xl font-bold leading-snug">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 flex-1 text-[0.95rem] leading-relaxed text-foreground/75">
+                    {item.blurb}
+                  </p>
 
-              return (
-                <article key={item.slug} className="group">
-                  {item.status === "available" && item.href ? (
-                    <Link to={item.href} className="block">
-                      {cover}
-                      <span className="label-mono mt-4 inline-block border-b border-rust pb-1 text-rust">
+                  <div className="mt-5 flex flex-wrap gap-3">
+                    {item.href && (
+                      <Link to={item.href} className="btn-solid">
                         Open the guide →
-                      </span>
-                    </Link>
-                  ) : (
-                    <div>
-                      {cover}
-                      <span className="label-mono mt-4 inline-block border-b border-ink/20 pb-1 text-ink/40">
-                        In the field · Coming soon
-                      </span>
-                    </div>
-                  )}
-                </article>
-              );
-            })}
+                      </Link>
+                    )}
+                    {item.download && (
+                      <a href={item.download} download className={item.href ? "btn-outline" : "btn-solid"}>
+                        Download PDF
+                      </a>
+                    )}
+                    {item.status === "soon" && <span className="btn-muted">Coming soon</span>}
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
+
         </div>
       </section>
 
