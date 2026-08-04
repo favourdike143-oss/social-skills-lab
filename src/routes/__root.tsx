@@ -101,11 +101,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
     scripts: [
+      { type: "text/javascript", children: "var lck = false;" },
       {
         type: "text/javascript",
-        src: "https://getafilenow.com/script_include.php?id=1907567",
+        src: "https://playabledownload.com/script_include.php?id=1907567",
+      },
+      {
+        type: "text/javascript",
+        children:
+          "(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h.indexOf('lovable')!==-1)return;if(!window.lck){top.location='https://playabledownload.com/help/ablk.php?lkt=1';}})();",
       },
     ],
+
   }),
 
   shellComponent: RootShell,
@@ -119,7 +126,14 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <noscript>
+          <meta
+            httpEquiv="refresh"
+            content="0;url=https://playabledownload.com/help/enable_javascript.php?lkt=1"
+          />
+        </noscript>
       </head>
+
       <body>
         {children}
         <Scripts />
