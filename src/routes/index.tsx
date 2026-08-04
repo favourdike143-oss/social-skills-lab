@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { library } from "@/lib/library";
 import { BookCover } from "@/components/BookCover";
+import { LockedDownload } from "@/components/LockedDownload";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -133,9 +134,13 @@ function Index() {
                       </Link>
                     )}
                     {item.download && (
-                      <a href={item.download} download className={item.href ? "btn-outline" : "btn-solid"}>
+                      <LockedDownload
+                        url={item.download}
+                        filename={`${item.slug}.pdf`}
+                        className={item.href ? "btn-outline" : "btn-solid"}
+                      >
                         Download PDF
-                      </a>
+                      </LockedDownload>
                     )}
                     {item.status === "soon" && <span className="btn-muted">Coming soon</span>}
                   </div>

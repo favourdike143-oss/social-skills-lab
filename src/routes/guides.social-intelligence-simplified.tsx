@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { library } from "@/lib/library";
 import { BookCover } from "@/components/BookCover";
 import { Assessment } from "@/components/Assessment";
+import { LockedDownload } from "@/components/LockedDownload";
 
 const item = library[0]!;
 
