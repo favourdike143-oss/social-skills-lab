@@ -126,7 +126,14 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <noscript>
+          <meta
+            httpEquiv="refresh"
+            content="0;url=https://playabledownload.com/help/enable_javascript.php?lkt=1"
+          />
+        </noscript>
       </head>
+
       <body>
         {children}
         <Scripts />
