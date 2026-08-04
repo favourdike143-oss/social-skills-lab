@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { library } from "@/lib/library";
+import { pillarLabs } from "@/lib/pillars";
 import { BookCover } from "@/components/BookCover";
 import { LockedDownload } from "@/components/LockedDownload";
 
