@@ -93,13 +93,13 @@ function GuidePage() {
             </h1>
             <p className="mt-5 max-w-lg leading-relaxed text-muted-foreground">{item.blurb}</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href={item.download}
-                download
+              <LockedDownload
+                url={item.download!}
+                filename={`${item.slug}.pdf`}
                 className="btn-solid"
               >
                 Download the PDF · Free
-              </a>
+              </LockedDownload>
               <a
                 href="#assessment"
                 className="btn-outline"
@@ -208,13 +208,13 @@ function GuidePage() {
             and when. Come back in 30 days and re-take the assessment.
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-3">
-            <a
-              href={item.download}
-              download
+            <LockedDownload
+              url={item.download!}
+              filename={`${item.slug}.pdf`}
               className="btn-solid"
             >
               Download the field guide
-            </a>
+            </LockedDownload>
             <Link
               to="/"
               className="btn-outline"
