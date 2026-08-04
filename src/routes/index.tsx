@@ -88,6 +88,47 @@ function Index() {
         </div>
       </section>
 
+      <section id="labs" className="border-t-2 border-ink">
+        <div className="mx-auto max-w-6xl px-6 py-20">
+          <p className="label-mono text-rust">Practice Labs</p>
+          <h2 className="mt-3 font-display text-4xl font-bold uppercase tracking-tight sm:text-5xl">
+            Train one pillar at a time
+          </h2>
+          <p className="mt-4 max-w-xl leading-relaxed text-foreground/80">
+            Dedicated interactive sections for each social skill — rate your habits, write your
+            own answers to real scenarios, score them against clear criteria, then take four reps
+            into your week.
+          </p>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {pillarLabs.map((lab) => (
+              <Link
+                key={lab.slug}
+                to="/practice/$pillar"
+                params={{ pillar: lab.slug }}
+                className="flex flex-col border-2 border-ink bg-card p-6 transition-transform hover:-translate-y-1"
+                style={{ boxShadow: `8px 8px 0 ${lab.accentSoft}` }}
+              >
+                <p className="label-mono" style={{ color: lab.accent }}>
+                  Pillar Lab
+                </p>
+                <h3 className="mt-2 font-display text-2xl font-bold uppercase leading-tight">
+                  {lab.name}
+                </h3>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-foreground/75">
+                  {lab.tagline}
+                </p>
+                <p className="label-mono mt-4 text-ink/55">
+                  {lab.statements.length} statements · {lab.drills.length} written drills
+                </p>
+                <span className="label-mono mt-4" style={{ color: lab.accent }}>
+                  Start the lab →
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       <section id="library" className="border-t border-border">
         <div className="mx-auto max-w-6xl px-6 py-20">
