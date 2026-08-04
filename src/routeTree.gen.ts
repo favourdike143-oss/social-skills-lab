@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GuidesSocialIntelligenceSimplifiedRouteImport } from './routes/guides.social-intelligence-simplified'
+import { Route as PracticeIndexRouteImport } from './routes/practice.index'
 import { Route as PracticePillarRouteImport } from './routes/practice.$pillar'
 
 const IndexRoute = IndexRouteImport.update({
@@ -24,6 +25,11 @@ const GuidesSocialIntelligenceSimplifiedRoute =
     path: '/guides/social-intelligence-simplified',
     getParentRoute: () => rootRouteImport,
   } as any)
+const PracticeIndexRoute = PracticeIndexRouteImport.update({
+  id: '/practice/',
+  path: '/practice/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PracticePillarRoute = PracticePillarRouteImport.update({
   id: '/practice/$pillar',
   path: '/practice/$pillar',
@@ -34,35 +40,47 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/guides/social-intelligence-simplified': typeof GuidesSocialIntelligenceSimplifiedRoute
   '/practice/$pillar': typeof PracticePillarRoute
+  '/practice/': typeof PracticeIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/guides/social-intelligence-simplified': typeof GuidesSocialIntelligenceSimplifiedRoute
   '/practice/$pillar': typeof PracticePillarRoute
+  '/practice': typeof PracticeIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/guides/social-intelligence-simplified': typeof GuidesSocialIntelligenceSimplifiedRoute
   '/practice/$pillar': typeof PracticePillarRoute
+  '/practice/': typeof PracticeIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/guides/social-intelligence-simplified' | '/practice/$pillar'
+    | '/'
+    | '/guides/social-intelligence-simplified'
+    | '/practice/$pillar'
+    | '/practice/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/guides/social-intelligence-simplified' | '/practice/$pillar'
+  to:
+    | '/'
+    | '/guides/social-intelligence-simplified'
+    | '/practice/$pillar'
+    | '/practice'
   id:
     | '__root__'
     | '/'
     | '/guides/social-intelligence-simplified'
     | '/practice/$pillar'
+    | '/practice/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   GuidesSocialIntelligenceSimplifiedRoute: typeof GuidesSocialIntelligenceSimplifiedRoute
   PracticePillarRoute: typeof PracticePillarRoute
+  PracticeIndexRoute: typeof PracticeIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -81,6 +99,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuidesSocialIntelligenceSimplifiedRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/practice/': {
+      id: '/practice/'
+      path: '/practice'
+      fullPath: '/practice/'
+      preLoaderRoute: typeof PracticeIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/practice/$pillar': {
       id: '/practice/$pillar'
       path: '/practice/$pillar'
@@ -96,6 +121,7 @@ const rootRouteChildren: RootRouteChildren = {
   GuidesSocialIntelligenceSimplifiedRoute:
     GuidesSocialIntelligenceSimplifiedRoute,
   PracticePillarRoute: PracticePillarRoute,
+  PracticeIndexRoute: PracticeIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -42,12 +42,12 @@ function Index() {
               A Free Companion Library
             </p>
             <h1 className="mt-6 font-display text-[clamp(2.4rem,6.4vw,4.6rem)] font-bold uppercase leading-[0.95] tracking-tight">
-              Social skills,
+              <span className="text-rust">Practice,</span>{" "}
+              <span className="text-teal">assess</span>
               <br />
-              <span className="text-rust">practiced,</span>{" "}
-              <span className="text-teal">assessed,</span>
+              and <span className="text-violet">improve</span>
               <br />
-              and <span className="text-violet">improved</span>.
+              your social skills.
             </h1>
             <div className="my-7 max-w-md dotted-rule" />
             <p className="max-w-lg text-[1.08rem] leading-relaxed text-foreground/80">
@@ -56,13 +56,29 @@ function Index() {
               actually practise this week.
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
-              <a href="#library" className="btn-solid">
+              <Link to="/practice" className="btn-solid">
+                Start a practice lab
+              </Link>
+              <a href="#library" className="btn-outline">
                 Browse the library
               </a>
-              <Link to="/guides/social-intelligence-simplified" className="btn-outline">
-                Take the assessment
-              </Link>
             </div>
+            <div className="mt-12 flex flex-wrap gap-2.5">
+              {[
+                ["Communication", "bg-teal-soft"],
+                ["Confidence", "bg-marigold"],
+                ["Humour", "bg-rust-soft"],
+                ["Human Behaviour", "bg-paper-deep"],
+              ].map(([p, bg]) => (
+                <span
+                  key={p}
+                  className={`label-mono border-2 border-ink px-3 py-1.5 text-ink ${bg}`}
+                >
+                  {p}
+                </span>
+              ))}
+            </div>
+
             <div className="mt-12 flex flex-wrap gap-2.5">
               {[
                 ["Communication", "bg-teal-soft"],
