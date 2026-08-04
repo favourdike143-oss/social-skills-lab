@@ -78,22 +78,6 @@ function Index() {
                 </span>
               ))}
             </div>
-
-            <div className="mt-12 flex flex-wrap gap-2.5">
-              {[
-                ["Communication", "bg-teal-soft"],
-                ["Confidence", "bg-marigold"],
-                ["Humour", "bg-rust-soft"],
-                ["Human Behaviour", "bg-paper-deep"],
-              ].map(([p, bg]) => (
-                <span
-                  key={p}
-                  className={`label-mono border-2 border-ink px-3 py-1.5 text-ink ${bg}`}
-                >
-                  {p}
-                </span>
-              ))}
-            </div>
           </div>
 
           <div className="mx-auto w-full max-w-xs lg:max-w-sm">
