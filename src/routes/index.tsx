@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { library } from "@/lib/library";
+import { pillarLabs } from "@/lib/pillars";
 import { BookCover } from "@/components/BookCover";
 import { LockedDownload } from "@/components/LockedDownload";
 
@@ -42,12 +43,12 @@ function Index() {
               A Free Companion Library
             </p>
             <h1 className="mt-6 font-display text-[clamp(2.4rem,6.4vw,4.6rem)] font-bold uppercase leading-[0.95] tracking-tight">
-              Social skills,
+              <span className="text-rust">Practice,</span>{" "}
+              <span className="text-teal">assess</span>
               <br />
-              <span className="text-rust">practiced,</span>{" "}
-              <span className="text-teal">assessed,</span>
+              and <span className="text-violet">improve</span>
               <br />
-              and <span className="text-violet">improved</span>.
+              your social skills.
             </h1>
             <div className="my-7 max-w-md dotted-rule" />
             <p className="max-w-lg text-[1.08rem] leading-relaxed text-foreground/80">
@@ -56,12 +57,12 @@ function Index() {
               actually practise this week.
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
-              <a href="#library" className="btn-solid">
+              <Link to="/practice" className="btn-solid">
+                Start a practice lab
+              </Link>
+              <a href="#library" className="btn-outline">
                 Browse the library
               </a>
-              <Link to="/guides/social-intelligence-simplified" className="btn-outline">
-                Take the assessment
-              </Link>
             </div>
             <div className="mt-12 flex flex-wrap gap-2.5">
               {[
@@ -84,6 +85,47 @@ function Index() {
             <div className="field-frame">
               {available[0] && <BookCover item={available[0]} />}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="labs" className="border-t-2 border-ink">
+        <div className="mx-auto max-w-6xl px-6 py-20">
+          <p className="label-mono text-rust">Practice Labs</p>
+          <h2 className="mt-3 font-display text-4xl font-bold uppercase tracking-tight sm:text-5xl">
+            Train one pillar at a time
+          </h2>
+          <p className="mt-4 max-w-xl leading-relaxed text-foreground/80">
+            Dedicated interactive sections for each social skill — rate your habits, write your
+            own answers to real scenarios, score them against clear criteria, then take four reps
+            into your week.
+          </p>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {pillarLabs.map((lab) => (
+              <Link
+                key={lab.slug}
+                to="/practice/$pillar"
+                params={{ pillar: lab.slug }}
+                className="flex flex-col border-2 border-ink bg-card p-6 transition-transform hover:-translate-y-1"
+                style={{ boxShadow: `8px 8px 0 ${lab.accentSoft}` }}
+              >
+                <p className="label-mono" style={{ color: lab.accent }}>
+                  Pillar Lab
+                </p>
+                <h3 className="mt-2 font-display text-2xl font-bold uppercase leading-tight">
+                  {lab.name}
+                </h3>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-foreground/75">
+                  {lab.tagline}
+                </p>
+                <p className="label-mono mt-4 text-ink/55">
+                  {lab.statements.length} statements · {lab.drills.length} written drills
+                </p>
+                <span className="label-mono mt-4" style={{ color: lab.accent }}>
+                  Start the lab →
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
