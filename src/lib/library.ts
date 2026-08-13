@@ -14,6 +14,8 @@ export type LibraryItem = {
   href?: string;
   download?: string;
   motif: "compass" | "grin" | "spark" | "eye" | "wave";
+  /** Optional alternate cover treatment. "comic" = bold sunburst pop-comedy cover. */
+  coverStyle?: "comic";
   /** Each edition gets its own cover palette so the shelf reads as a series, not a clone. */
   accent: string;
   accentSoft: string;
