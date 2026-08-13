@@ -94,7 +94,7 @@ function ComicCover({ item }: { item: LibraryItem }) {
         </h3>
 
         {/* big grin */}
-        <svg viewBox="0 0 100 70" className="mt-[5%] w-[62%]" aria-hidden="true">
+        <svg viewBox="0 0 100 70" className="my-auto w-[78%]" aria-hidden="true">
           <path
             d="M22 22c3-6 9-6 12 0M66 22c3-6 9-6 12 0"
             fill="none"
