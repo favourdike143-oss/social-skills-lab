@@ -14,6 +14,8 @@ export type LibraryItem = {
   href?: string;
   download?: string;
   motif: "compass" | "grin" | "spark" | "eye" | "wave";
+  /** Optional alternate cover treatment. "comic" = bold sunburst pop-comedy cover. */
+  coverStyle?: "comic";
   /** Each edition gets its own cover palette so the shelf reads as a series, not a clone. */
   accent: string;
   accentSoft: string;
@@ -52,9 +54,10 @@ export const library: LibraryItem[] = [
     status: "available",
     download: funnyPdf.url,
     motif: "grin",
-    accent: "oklch(0.62 0.19 25)",
-    accentSoft: "oklch(0.83 0.14 75)",
-    paper: "oklch(0.955 0.045 85)",
+    coverStyle: "comic",
+    accent: "oklch(0.78 0.17 62)",
+    accentSoft: "oklch(0.9 0.19 100)",
+    paper: "oklch(0.8 0.16 66)",
   },
   {
     slug: "humour-field-guide",

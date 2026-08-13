@@ -51,12 +51,87 @@ function Motif({ kind }: { kind: LibraryItem["motif"] }) {
   );
 }
 
+function ComicCover({ item }: { item: LibraryItem }) {
+  const words = item.title.split(" ");
+  const last = words.pop() ?? "";
+  const lead = words.join(" ");
+
+  return (
+    <div
+      className="relative aspect-[210/297] w-full overflow-hidden bg-[var(--cover-paper)] transition-transform duration-500 group-hover:-translate-y-1.5"
+      style={{
+        "--cover-paper": item.paper,
+        "--cover-accent": item.accent,
+        "--cover-pop": item.accentSoft,
+      } as CSSProperties}
+    >
+      {/* sunburst rays */}
+      <div
+        className="absolute left-1/2 top-[38%] aspect-square w-[220%] -translate-x-1/2 -translate-y-1/2 opacity-60"
+        style={{
+          background:
+            "repeating-conic-gradient(from 0deg, color-mix(in oklab, white 26%, transparent) 0deg 5deg, transparent 5deg 12deg)",
+        }}
+      />
+      <div className="relative flex h-full flex-col items-center px-[7%] py-[6%] text-center">
+        <p className="font-display text-[clamp(0.5rem,1.5vw,0.9rem)] font-bold uppercase tracking-[0.22em] text-black/85">
+          The Social Board
+        </p>
+        <h3 className="mt-[4%] w-full font-display font-bold uppercase italic leading-[0.85] tracking-tight">
+          <span className="block text-[clamp(1.2rem,4.6vw,2.6rem)] text-black -rotate-2">
+            {lead}
+          </span>
+          <span
+            className="mt-[2%] block text-[clamp(1.7rem,6.6vw,3.6rem)] rotate-1"
+            style={{
+              color: "var(--cover-pop)",
+              WebkitTextStroke: "1.5px black",
+              paintOrder: "stroke fill",
+            }}
+          >
+            {last}
+          </span>
+        </h3>
+
+        {/* big grin */}
+        <svg viewBox="0 0 100 70" className="my-auto w-[78%]" aria-hidden="true">
+          <path
+            d="M22 22c3-6 9-6 12 0M66 22c3-6 9-6 12 0"
+            fill="none"
+            stroke="black"
+            strokeWidth="4.5"
+            strokeLinecap="round"
+          />
+          <path
+            d="M18 36c6 22 58 22 64 0z"
+            fill="white"
+            stroke="black"
+            strokeWidth="4.5"
+            strokeLinejoin="round"
+          />
+        </svg>
+
+        <div className="mt-auto w-full">
+          <p className="bg-black px-2 py-[3%] font-display text-[clamp(0.5rem,1.35vw,0.8rem)] font-bold uppercase leading-tight text-white">
+            {item.subtitle}
+          </p>
+          <p className="mt-[3%] font-display text-[clamp(0.5rem,1.25vw,0.78rem)] font-bold uppercase tracking-wide text-black/85">
+            {item.pillars}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function BookCover({ item }: { item: LibraryItem }) {
   const style = {
     "--cover-accent": item.accent,
     "--cover-accent-soft": item.accentSoft,
     "--cover-paper": item.paper,
   } as CSSProperties;
+
+  if (item.coverStyle === "comic") return <ComicCover item={item} />;
 
   return (
     <div

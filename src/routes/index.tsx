@@ -29,14 +29,14 @@ function Index() {
 
   return (
     <div className="paper-grain min-h-screen">
-      <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
+      <header className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 sm:px-6 sm:py-6">
         <Link to="/" className="label-mono text-ink">
           The Social Board
         </Link>
         <span className="label-mono hidden text-ink/50 sm:block">The Library · Free Resources</span>
       </header>
 
-      <section className="mx-auto max-w-6xl px-6 pb-20 pt-10 sm:pt-16">
+      <section className="mx-auto max-w-6xl px-4 pb-14 pt-8 sm:px-6 sm:pb-20 sm:pt-16">
         <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
           <div>
             <p className="label-mono inline-block border-2 border-ink bg-marigold px-3 py-1.5 text-ink">
@@ -56,15 +56,15 @@ function Index() {
               communication, confidence, humour and human behaviour into something you can
               actually practise this week.
             </p>
-            <div className="mt-9 flex flex-wrap gap-4">
-              <Link to="/practice" className="btn-solid">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
+              <Link to="/practice" className="btn-solid justify-center">
                 Start a practice lab
               </Link>
-              <a href="#library" className="btn-outline">
+              <a href="#library" className="btn-outline justify-center">
                 Browse the library
               </a>
             </div>
-            <div className="mt-12 flex flex-wrap gap-2.5">
+            <div className="mt-10 flex flex-wrap gap-2 sm:mt-12 sm:gap-2.5">
               {[
                 ["Communication", "bg-teal-soft"],
                 ["Confidence", "bg-marigold"],
@@ -81,7 +81,7 @@ function Index() {
             </div>
           </div>
 
-          <div className="mx-auto w-full max-w-xs lg:max-w-sm">
+          <div className="mx-auto w-full max-w-[15rem] sm:max-w-xs lg:max-w-sm">
             <div className="field-frame">
               {available[0] && <BookCover item={available[0]} />}
             </div>
@@ -90,7 +90,7 @@ function Index() {
       </section>
 
       <section id="labs" className="border-t-2 border-ink">
-        <div className="mx-auto max-w-6xl px-6 py-20">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
           <p className="label-mono text-rust">Practice Labs</p>
           <h2 className="mt-3 font-display text-4xl font-bold uppercase tracking-tight sm:text-5xl">
             Train one pillar at a time
@@ -100,7 +100,7 @@ function Index() {
             own answers to real scenarios, score them against clear criteria, then take four reps
             into your week.
           </p>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-5 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
             {pillarLabs.map((lab) => (
               <Link
                 key={lab.slug}
@@ -132,7 +132,7 @@ function Index() {
 
 
       <section id="library" className="border-t border-border">
-        <div className="mx-auto max-w-6xl px-6 py-20">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
               <p className="label-mono text-rust">The Shelf</p>
@@ -145,7 +145,7 @@ function Index() {
             </p>
           </div>
 
-          <div className="mt-14 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-x-8 gap-y-12 sm:mt-14 sm:grid-cols-2 sm:gap-y-14 lg:grid-cols-3">
             {library.map((item) => (
               <article key={item.slug} className="group flex flex-col">
                 <div
@@ -169,9 +169,9 @@ function Index() {
                     {item.blurb}
                   </p>
 
-                  <div className="mt-5 flex flex-wrap gap-3">
+                  <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                     {item.href && (
-                      <Link to={item.href} className="btn-solid">
+                      <Link to={item.href} className="btn-solid justify-center">
                         Open the guide →
                       </Link>
                     )}
@@ -179,12 +179,12 @@ function Index() {
                       <LockedDownload
                         url={item.download}
                         filename={`${item.slug}.pdf`}
-                        className={item.href ? "btn-outline" : "btn-solid"}
+                        className={`justify-center ${item.href ? "btn-outline" : "btn-solid"}`}
                       >
                         Download PDF
                       </LockedDownload>
                     )}
-                    {item.status === "soon" && <span className="btn-muted">Coming soon</span>}
+                    {item.status === "soon" && <span className="btn-muted justify-center">Coming soon</span>}
                   </div>
                 </div>
               </article>
@@ -195,7 +195,7 @@ function Index() {
       </section>
 
       <footer className="border-t border-border">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-10">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-8 sm:px-6 sm:py-10">
           <p className="label-mono text-ink/50">The Social Board · @thesocialboardyt</p>
           <p className="label-mono text-ink/50">Free companion resources</p>
         </div>
