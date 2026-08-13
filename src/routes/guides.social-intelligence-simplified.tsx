@@ -77,7 +77,7 @@ function GuidePage() {
         <span className="label-mono hidden text-ink/50 sm:block">{item.edition}</span>
       </header>
 
-      <section className="mx-auto max-w-5xl px-6 pb-16 pt-8">
+      <section className="mx-auto max-w-5xl px-4 pb-14 pt-6 sm:px-6 sm:pb-16 sm:pt-8">
         <div className="grid gap-12 md:grid-cols-[0.8fr_1.2fr] md:items-center">
           <div className="mx-auto w-full max-w-[15rem] md:max-w-none">
             <div className="field-frame">
@@ -92,17 +92,17 @@ function GuidePage() {
               {item.title}
             </h1>
             <p className="mt-5 max-w-lg leading-relaxed text-muted-foreground">{item.blurb}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <LockedDownload
                 url={item.download!}
                 filename={`${item.slug}.pdf`}
-                className="btn-solid"
+                className="btn-solid justify-center"
               >
                 Download the PDF · Free
               </LockedDownload>
               <a
                 href="#assessment"
-                className="btn-outline"
+                className="btn-outline justify-center"
               >
                 Take it online
               </a>
@@ -115,7 +115,7 @@ function GuidePage() {
       </section>
 
       <section id="assessment" className="border-t border-border">
-        <div className="mx-auto max-w-3xl px-6 py-20">
+        <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-20">
           <p className="label-mono text-rust">Part One</p>
           <h2 className="mt-3 font-display text-4xl font-bold uppercase tracking-tight sm:text-5xl">
             The Self-Assessment
@@ -132,7 +132,7 @@ function GuidePage() {
       </section>
 
       <section className="border-t border-border">
-        <div className="mx-auto max-w-5xl px-6 py-20">
+        <div className="mx-auto max-w-5xl px-4 py-14 sm:px-6 sm:py-20">
           <p className="label-mono text-rust">Part Two</p>
           <h2 className="mt-3 font-display text-4xl font-bold uppercase tracking-tight sm:text-5xl">
             The Four Pillars
@@ -157,7 +157,7 @@ function GuidePage() {
       </section>
 
       <section className="border-t border-border">
-        <div className="mx-auto grid max-w-5xl gap-14 px-6 py-20 lg:grid-cols-2">
+        <div className="mx-auto grid max-w-5xl gap-12 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-2">
           <div>
             <p className="label-mono text-rust">Part Three</p>
             <h2 className="mt-3 font-display text-4xl font-bold uppercase tracking-tight">
@@ -198,7 +198,7 @@ function GuidePage() {
       </section>
 
       <section className="border-t border-border">
-        <div className="mx-auto max-w-3xl px-6 py-20 text-center">
+        <div className="mx-auto max-w-3xl px-4 py-14 text-center sm:px-6 sm:py-20">
           <p className="label-mono text-rust">Before You Go</p>
           <h2 className="mt-4 font-display text-4xl font-bold uppercase tracking-tight sm:text-5xl">
             Keep Exploring
@@ -207,7 +207,7 @@ function GuidePage() {
             You don't need all four pillars perfected. You need to know which one to reach for,
             and when. Come back in 30 days and re-take the assessment.
           </p>
-          <div className="mt-9 flex flex-wrap justify-center gap-3">
+          <div className="mt-9 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
             <LockedDownload
               url={item.download!}
               filename={`${item.slug}.pdf`}
