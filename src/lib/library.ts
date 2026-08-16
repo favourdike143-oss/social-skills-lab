@@ -1,5 +1,7 @@
 import guidePdf from "@/assets/si-field-guide.pdf.asset.json";
 import funnyPdf from "@/assets/i-am-officially-funny.pdf.asset.json";
+import selfTrustPdf from "@/assets/self-trust.pdf.asset.json";
+import selfTrustCover from "@/assets/self-trust-cover.png.asset.json";
 
 export type LibraryItem = {
   slug: string;
@@ -16,6 +18,8 @@ export type LibraryItem = {
   motif: "compass" | "grin" | "spark" | "eye" | "wave";
   /** Optional alternate cover treatment. "comic" = bold sunburst pop-comedy cover. */
   coverStyle?: "comic";
+  /** Optional real cover artwork; when set it replaces the generated cover. */
+  coverImage?: string;
   /** Each edition gets its own cover palette so the shelf reads as a series, not a clone. */
   accent: string;
   accentSoft: string;
@@ -60,8 +64,25 @@ export const library: LibraryItem[] = [
     paper: "oklch(0.8 0.16 66)",
   },
   {
-    slug: "humour-field-guide",
+    slug: "how-to-trust-yourself",
     edition: "Edition No. 03",
+    kind: "A Companion Resource",
+    title: "How To Trust Yourself",
+    subtitle: "A 4 step framework",
+    pillars: "Confidence · Self-Trust · Decision Making",
+    blurb:
+      "A companion resource on how to trust yourself — a four-step framework for rebuilding self-trust, keeping promises to yourself and deciding with less second-guessing.",
+    status: "available",
+    download: selfTrustPdf.url,
+    coverImage: selfTrustCover.url,
+    motif: "compass",
+    accent: "oklch(0.5 0.12 45)",
+    accentSoft: "oklch(0.72 0.1 50)",
+    paper: "oklch(0.55 0.13 45)",
+  },
+  {
+    slug: "humour-field-guide",
+    edition: "Edition No. 04",
     kind: "A Field Guide",
     title: "The Humour Field Guide",
     subtitle: "Lightness that connects, not distances",
@@ -74,9 +95,10 @@ export const library: LibraryItem[] = [
     accentSoft: "oklch(0.8 0.1 310)",
     paper: "oklch(0.955 0.025 305)",
   },
+
   {
     slug: "reading-people",
-    edition: "Edition No. 04",
+    edition: "Edition No. 05",
     kind: "A Field Guide",
     title: "Reading People",
     subtitle: "The layer underneath the words",
@@ -91,7 +113,7 @@ export const library: LibraryItem[] = [
   },
   {
     slug: "conversation-lab",
-    edition: "Edition No. 05",
+    edition: "Edition No. 06",
     kind: "A Workbook",
     title: "The Conversation Lab",
     subtitle: "Openers, depth, and graceful exits",
@@ -106,7 +128,7 @@ export const library: LibraryItem[] = [
   },
   {
     slug: "quiet-influence",
-    edition: "Edition No. 06",
+    edition: "Edition No. 07",
     kind: "A Field Guide",
     title: "Quiet Influence",
     subtitle: "Persuasion without pressure",

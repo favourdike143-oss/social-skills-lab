@@ -60,15 +60,22 @@ export function LockedDownload({ url, filename, className, children }: Props) {
 
       if (typeof window.call_locker === "function") {
         window.call_locker();
-        // Safety net: if the locker never fires its callback (blocked, closed,
-        // or a callback name we don't know), give the reader a direct link.
-        window.setTimeout(() => {
-          if (!done.current) setShowFallback(true);
-        }, 6000);
+        // Some locker builds only flip `window.lck` instead of firing a callback.
+        const started = Date.now();
+        const poll = window.setInterval(() => {
+          if (done.current || window.lck === true) {
+            window.clearInterval(poll);
+            complete();
+          } else if (Date.now() - started > 4000) {
+            window.clearInterval(poll);
+            setShowFallback(true);
+          }
+        }, 400);
       } else {
         // Locker script unavailable (blocked/offline) — don't strand the user.
         complete();
       }
+
     },
     [url, filename],
   );
