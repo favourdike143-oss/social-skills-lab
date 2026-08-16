@@ -37,7 +37,7 @@ function Index() {
       </header>
 
       <section className="mx-auto max-w-6xl px-4 pb-14 pt-8 sm:px-6 sm:pb-20 sm:pt-16">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="max-w-3xl">
           <div>
             <p className="label-mono inline-block border-2 border-ink bg-marigold px-3 py-1.5 text-ink">
               A Free Companion Library
@@ -57,10 +57,7 @@ function Index() {
               actually practise this week.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-              <Link to="/practice" className="btn-solid justify-center">
-                Start a practice lab
-              </Link>
-              <a href="#library" className="btn-outline justify-center">
+              <a href="#library" className="btn-bright justify-center">
                 Browse the library
               </a>
             </div>
@@ -78,12 +75,6 @@ function Index() {
                   {p}
                 </span>
               ))}
-            </div>
-          </div>
-
-          <div className="mx-auto w-full max-w-[15rem] sm:max-w-xs lg:max-w-sm">
-            <div className="field-frame">
-              {available[0] && <BookCover item={available[0]} />}
             </div>
           </div>
         </div>
