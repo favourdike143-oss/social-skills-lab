@@ -60,8 +60,25 @@ export const library: LibraryItem[] = [
     paper: "oklch(0.8 0.16 66)",
   },
   {
-    slug: "humour-field-guide",
+    slug: "how-to-trust-yourself",
     edition: "Edition No. 03",
+    kind: "A Companion Resource",
+    title: "How To Trust Yourself",
+    subtitle: "A 4 step framework",
+    pillars: "Confidence · Self-Trust · Decision Making",
+    blurb:
+      "A companion resource on how to trust yourself — a four-step framework for rebuilding self-trust, keeping promises to yourself and deciding with less second-guessing.",
+    status: "available",
+    download: selfTrustPdf.url,
+    coverImage: selfTrustCover.url,
+    motif: "compass",
+    accent: "oklch(0.5 0.12 45)",
+    accentSoft: "oklch(0.72 0.1 50)",
+    paper: "oklch(0.55 0.13 45)",
+  },
+  {
+    slug: "humour-field-guide",
+    edition: "Edition No. 04",
     kind: "A Field Guide",
     title: "The Humour Field Guide",
     subtitle: "Lightness that connects, not distances",
@@ -74,6 +91,7 @@ export const library: LibraryItem[] = [
     accentSoft: "oklch(0.8 0.1 310)",
     paper: "oklch(0.955 0.025 305)",
   },
+
   {
     slug: "reading-people",
     edition: "Edition No. 04",
