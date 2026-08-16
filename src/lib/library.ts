@@ -1,4 +1,5 @@
 import guidePdf from "@/assets/si-field-guide.pdf.asset.json";
+import siCover from "@/assets/social-intelligence-cover.png.asset.json";
 import funnyPdf from "@/assets/i-am-officially-funny.pdf.asset.json";
 import selfTrustPdf from "@/assets/self-trust.pdf.asset.json";
 import selfTrustCover from "@/assets/self-trust-cover.png.asset.json";
