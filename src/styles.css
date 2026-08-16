@@ -208,15 +208,16 @@
   align-items: center;
   gap: 0.5rem;
   padding: 1rem 1.75rem;
-  color: var(--ink);
-  background: var(--marigold);
+  color: var(--primary-foreground);
+  background: var(--rust);
   border: 2px solid var(--ink);
-  box-shadow: 4px 4px 0 var(--teal);
+  box-shadow: 4px 4px 0 var(--marigold);
   transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
   &:hover {
-    background: var(--teal-soft);
+    background: var(--marigold);
+    color: var(--ink);
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 var(--teal);
+    box-shadow: 2px 2px 0 var(--marigold);
   }
 }
 
