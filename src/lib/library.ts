@@ -41,6 +41,7 @@ export const library: LibraryItem[] = [
     status: "available",
     href: "/guides/social-intelligence-simplified",
     download: guidePdf.url,
+    coverImage: siCover.url,
     motif: "compass",
     accent: "oklch(0.52 0.15 38)",
     accentSoft: "oklch(0.78 0.09 45)",
