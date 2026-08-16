@@ -130,8 +130,20 @@ export function BookCover({ item }: { item: LibraryItem }) {
     "--cover-accent-soft": item.accentSoft,
     "--cover-paper": item.paper,
   } as CSSProperties;
+  if (item.coverImage)
+    return (
+      <div className="relative aspect-[210/297] w-full overflow-hidden bg-[var(--cover-paper)] transition-transform duration-500 group-hover:-translate-y-1.5" style={style}>
+        <img
+          src={item.coverImage}
+          alt={`${item.title} — cover`}
+          loading="lazy"
+          className="h-full w-full object-cover"
+        />
+      </div>
+    );
 
   if (item.coverStyle === "comic") return <ComicCover item={item} />;
+
 
   return (
     <div
