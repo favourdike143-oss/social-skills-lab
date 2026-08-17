@@ -1,4 +1,4 @@
-import { useCallback, type ReactNode } from "react";
+import { useCallback, useState, type ReactNode } from "react";
 
 /**
  * Triggers a real file download.
@@ -24,17 +24,39 @@ type Props = {
 };
 
 export function LockedDownload({ url, filename, className, children }: Props) {
+  const [isDownloading, setIsDownloading] = useState(false);
+
   const onClick = useCallback(
-    (e: React.MouseEvent) => {
+    async (e: React.MouseEvent) => {
       e.preventDefault();
-      triggerDownload(url, filename);
+      if (isDownloading) return;
+
+      setIsDownloading(true);
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Download failed with status ${response.status}`);
+
+        const blobUrl = URL.createObjectURL(await response.blob());
+        triggerDownload(blobUrl, filename);
+        window.setTimeout(() => URL.revokeObjectURL(blobUrl), 30_000);
+      } catch {
+        triggerDownload(url, filename);
+      } finally {
+        setIsDownloading(false);
+      }
     },
-    [url, filename],
+    [url, filename, isDownloading],
   );
 
   return (
-    <a href={url} download={filename} className={className} onClick={onClick}>
-      {children}
+    <a
+      href={url}
+      download={filename}
+      className={className}
+      onClick={onClick}
+      aria-busy={isDownloading}
+    >
+      {isDownloading ? "PREPARING DOWNLOAD…" : children}
     </a>
   );
 }
