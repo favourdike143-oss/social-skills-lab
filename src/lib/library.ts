@@ -88,21 +88,6 @@ export const library: LibraryItem[] = [
     accentSoft: "oklch(0.72 0.1 50)",
     paper: "oklch(0.55 0.13 45)",
   },
-  {
-    slug: "humour-field-guide",
-    edition: "Edition No. 04",
-    kind: "A Field Guide",
-    title: "The Humour Field Guide",
-    subtitle: "Lightness that connects, not distances",
-    pillars: "Play · Warmth · Reading The Room",
-    blurb:
-      "Field notes on the six comic registers, when each one belongs, and how shared laughter quietly rewires a group's dynamic.",
-    status: "soon",
-    motif: "spark",
-    accent: "oklch(0.58 0.15 300)",
-    accentSoft: "oklch(0.8 0.1 310)",
-    paper: "oklch(0.955 0.025 305)",
-  },
 
   {
     slug: "reading-people",
