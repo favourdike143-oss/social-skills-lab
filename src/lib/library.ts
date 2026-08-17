@@ -4,6 +4,12 @@ import funnyPdf from "@/assets/i-am-officially-funny.pdf.asset.json";
 import selfTrustPdf from "@/assets/self-trust.pdf.asset.json";
 import selfTrustCover from "@/assets/self-trust-cover.png.asset.json";
 
+const ASSET_ORIGIN = "https://social-skills-lab.lovable.app";
+
+function assetUrl(url: string) {
+  return new URL(url, ASSET_ORIGIN).href;
+}
+
 export type LibraryItem = {
   slug: string;
   edition: string;
@@ -40,8 +46,8 @@ export const library: LibraryItem[] = [
     pages: 15,
     status: "available",
     href: "/guides/social-intelligence-simplified",
-    download: guidePdf.url,
-    coverImage: siCover.url,
+    download: assetUrl(guidePdf.url),
+    coverImage: assetUrl(siCover.url),
     motif: "compass",
     accent: "oklch(0.52 0.15 38)",
     accentSoft: "oklch(0.78 0.09 45)",
@@ -58,7 +64,7 @@ export const library: LibraryItem[] = [
       "The complete interactive comedy workbook: comedy style profile, the daily writing habit, joke anatomy, banter drills, observation logs, delivery and a 90-day career plan.",
     pages: 41,
     status: "available",
-    download: funnyPdf.url,
+    download: assetUrl(funnyPdf.url),
     motif: "grin",
     coverStyle: "comic",
     accent: "oklch(0.78 0.17 62)",
@@ -75,8 +81,8 @@ export const library: LibraryItem[] = [
     blurb:
       "A companion resource on how to trust yourself — a four-step framework for rebuilding self-trust, keeping promises to yourself and deciding with less second-guessing.",
     status: "available",
-    download: selfTrustPdf.url,
-    coverImage: selfTrustCover.url,
+    download: assetUrl(selfTrustPdf.url),
+    coverImage: assetUrl(selfTrustCover.url),
     motif: "compass",
     accent: "oklch(0.5 0.12 45)",
     accentSoft: "oklch(0.72 0.1 50)",

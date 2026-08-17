@@ -84,7 +84,7 @@ function Index() {
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
           <p className="label-mono text-rust">Practice Labs</p>
           <h2 className="mt-3 font-display text-4xl font-bold uppercase tracking-tight sm:text-5xl">
-            Train one pillar at a time
+            Practice one social skill at a time
           </h2>
           <p className="mt-4 max-w-xl leading-relaxed text-foreground/80">
             Dedicated interactive sections for each social skill — rate your habits, write your
@@ -100,10 +100,7 @@ function Index() {
                 className="flex flex-col border-2 border-ink bg-card p-6 transition-transform hover:-translate-y-1"
                 style={{ boxShadow: `8px 8px 0 ${lab.accentSoft}` }}
               >
-                <p className="label-mono" style={{ color: lab.accent }}>
-                  Pillar Lab
-                </p>
-                <h3 className="mt-2 font-display text-2xl font-bold uppercase leading-tight">
+                <h3 className="font-display text-2xl font-bold uppercase leading-tight">
                   {lab.name}
                 </h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-foreground/75">
@@ -113,7 +110,7 @@ function Index() {
                   {lab.statements.length} statements · {lab.drills.length} written drills
                 </p>
                 <span className="label-mono mt-4" style={{ color: lab.accent }}>
-                  Start the lab →
+                  START QUESTIONNAIRE →
                 </span>
               </Link>
             ))}

@@ -57,7 +57,7 @@ function PracticeIndex() {
               style={{ boxShadow: `8px 8px 0 ${lab.accentSoft}` }}
             >
               <p className="label-mono" style={{ color: lab.accent }}>
-                Lab {String(i + 1).padStart(2, "0")} · {lab.tagline}
+                {String(i + 1).padStart(2, "0")} · {lab.tagline}
               </p>
               <h2 className="mt-3 font-display text-3xl font-bold uppercase tracking-tight">
                 {lab.name}
@@ -71,7 +71,7 @@ function PracticeIndex() {
               </p>
               <div className="mt-5">
                 <Link to="/practice/$pillar" params={{ pillar: lab.slug }} className="btn-solid">
-                  Start the {lab.name.toLowerCase()} lab →
+                  START QUESTIONNAIRE →
                 </Link>
               </div>
             </article>

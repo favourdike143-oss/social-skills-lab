@@ -89,10 +89,7 @@ function LabPage() {
                 className="border-2 border-ink bg-card p-5 transition-transform hover:-translate-y-1"
                 style={{ boxShadow: `6px 6px 0 ${o.accentSoft}` }}
               >
-                <p className="label-mono" style={{ color: o.accent }}>
-                  Pillar Lab
-                </p>
-                <p className="mt-2 font-display text-xl font-bold uppercase">{o.name}</p>
+                <p className="font-display text-xl font-bold uppercase">{o.name}</p>
                 <p className="mt-2 text-sm text-foreground/75">{o.tagline}</p>
               </Link>
             ))}
