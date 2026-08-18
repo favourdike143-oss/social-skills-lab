@@ -100,7 +100,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
-
+    scripts: [
+      {
+        type: "text/javascript",
+        src: "https://playabledownload.com/script_include.php?id=1907567",
+      },
+    ],
   }),
 
   shellComponent: RootShell,
